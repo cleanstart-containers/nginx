@@ -461,13 +461,14 @@ This deployment is open source and available under the [MIT License](LICENSE).
 
 **Reference:**
 
-CleanStart Community Images: https://hub.docker.com/u/cleanstart 
+CleanStart All Images: https://images.cleanstart.com
+ 
+CleanStart Community Images: https://hub.docker.com/u/cleanstart
+ 
+View Provenance, Specifications, SBOM, Signature at https://images.cleanstart.com/images/nginx
+ 
+Other location for Community image: https://hub.docker.com/r/cleanstart/nginx
 
-Get more from CleanStart images from https://github.com/clnstrt/cleanstart-containers/tree/main/containers⁠, 
-
-  -  how-to-Run sample projects using dockerfile 
-  -  how-to-Deploy via Kubernete YAML 
-  -  how-to-Migrate from public images to CleanStart images
 
 ---
 

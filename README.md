@@ -460,14 +460,14 @@ This deployment is open source and available under the [MIT License](LICENSE).
 - [Kubernetes HPA Documentation](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/)
 
 **
-### Resources & Documentation  
-Essential links and resources for further information:
+### 
+### Resources
 
-- CleanStart Website: https://www.cleanstart.com
+- Official Documentation: https://nginx.org/en/docs/
 - View Provenance, Specifications, SBOM, Signature at: https://images.cleanstart.com/images/nginx
+- Docker Hub: https://hub.docker.com/r/cleanstart/nginx
 - CleanStart All Images: https://images.cleanstart.com
-- CleanStart Community Images: https://hub.docker.com/u/cleanstart
-- Other location for Community image: https://hub.docker.com/r/cleanstart/nginx
+- CleanStart All Community Images: https://hub.docker.com/u/cleanstart
 
 ---
 

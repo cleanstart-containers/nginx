@@ -459,20 +459,19 @@ This deployment is open source and available under the [MIT License](LICENSE).
 - [Prometheus Monitoring](https://prometheus.io/docs/)
 - [Kubernetes HPA Documentation](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/)
 
-**Reference:**
+**
+### Resources & Documentation  
+Essential links and resources for further information:
 
-CleanStart All Images: https://images.cleanstart.com
- 
-CleanStart Community Images: https://hub.docker.com/u/cleanstart
- 
-View Provenance, Specifications, SBOM, Signature at https://images.cleanstart.com/images/nginx
- 
-Other location for Community image: https://hub.docker.com/r/cleanstart/nginx
-
+- CleanStart Website: https://www.cleanstart.com
+- View Provenance, Specifications, SBOM, Signature at: https://images.cleanstart.com/images/nginx
+- CleanStart All Images: https://images.cleanstart.com
+- CleanStart Community Images: https://hub.docker.com/u/cleanstart
+- Other location for Community image: https://hub.docker.com/r/cleanstart/nginx
 
 ---
 
-# Vulnerability Disclaimer
+### Vulnerability Disclaimer
 
 CleanStart offers Docker images that include third-party open-source libraries and packages maintained by independent contributors. While CleanStart maintains these images and applies industry-standard security practices, it cannot guarantee the security or integrity of upstream components beyond its control.
 

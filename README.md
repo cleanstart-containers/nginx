@@ -48,26 +48,34 @@ This deployment provides a complete Nginx solution on Kubernetes with:
 ### 1. Deploy Everything
 
 ```bash
+
 # Deploy all components with a single command
+
 kubectl apply -f complete-deployment.yaml
 
 # Verify deployment
+
 kubectl get all -n nginx-production
 ```
 
 ### 2. Check Deployment Status
 
 ```bash
+
 # Check pods
+
 kubectl get pods -n nginx-production
 
 # Check services
+
 kubectl get services -n nginx-production
 
 # Check HPA status
+
 kubectl get hpa -n nginx-production
 
 # Check PDB
+
 kubectl get pdb -n nginx-production
 ```
 
@@ -95,7 +103,9 @@ nginx-pdb        1               N/A               2                     1m
 ### Method 1: Port Forward (Development/Testing)
 
 ```bash
+
 # Port forward to access the application
+
 kubectl port-forward -n nginx-production svc/nginx-service 8080:80
 
 # Access: http://localhost:8080
@@ -104,27 +114,35 @@ kubectl port-forward -n nginx-production svc/nginx-service 8080:80
 ### Method 2: NodePort (External Access)
 
 ```bash
+
 # Get node IP (for minikube)
+
 minikube ip
 
 # Access via NodePort
+
 # http://<NODE-IP>:30080
 ```
 
 ### Method 3: LoadBalancer (Cloud Providers)
 
 ```bash
+
 # Get external IP
+
 kubectl get services -n nginx-production nginx-service-loadbalancer
 
 # Access via LoadBalancer IP
+
 # http://<EXTERNAL-IP>
 ```
 
 ### Method 4: Ingress (Production)
 
 ```bash
+
 # Create ingress (example with nginx-ingress)
+
 kubectl create ingress nginx-ingress -n nginx-production \
   --rule="nginx.example.com/*=nginx-service:80" \
   --class=nginx
@@ -145,16 +163,21 @@ kubectl create ingress nginx-ingress -n nginx-production \
 ### Quick Tests
 
 ```bash
+
 # Health check
+
 curl http://localhost:8080/health
 
 # Status information
+
 curl http://localhost:8080/status
 
 # Metrics
+
 curl http://localhost:8080/metrics
 
 # Security headers
+
 curl -I http://localhost:8080/
 ```
 
@@ -184,13 +207,17 @@ The web interface at `http://localhost:8080` provides:
 ### Logging
 
 ```bash
+
 # View application logs
+
 kubectl logs -n nginx-production deployment/nginx-app
 
 # Follow logs in real-time
+
 kubectl logs -f -n nginx-production deployment/nginx-app
 
 # View logs from specific pod
+
 kubectl logs -n nginx-production <pod-name>
 ```
 
@@ -295,17 +322,22 @@ The Nginx configuration includes:
 ### Debug Commands
 
 ```bash
+
 # Check all resources
+
 kubectl get all -n nginx-production
 
 # Check events
+
 kubectl get events -n nginx-production --sort-by='.lastTimestamp'
 
 # Check resource usage
+
 kubectl top pods -n nginx-production
 kubectl top nodes
 
 # Check configuration
+
 kubectl describe configmap -n nginx-production nginx-config
 kubectl describe configmap -n nginx-production nginx-html-content
 ```
@@ -315,26 +347,34 @@ kubectl describe configmap -n nginx-production nginx-html-content
 ### Load Testing
 
 ```bash
+
 # Install hey (load testing tool)
+
 go install github.com/rakyll/hey@latest
 
 # Basic load test
+
 hey -n 1000 -c 10 http://localhost:8080/health
 
 # Stress test
+
 hey -n 10000 -c 50 http://localhost:8080/status
 ```
 
 ### Monitoring During Load
 
 ```bash
+
 # Watch HPA scaling
+
 kubectl get hpa -n nginx-production -w
 
 # Monitor pod status
+
 kubectl get pods -n nginx-production -w
 
 # Check resource usage
+
 kubectl top pods -n nginx-production
 ```
 
@@ -343,23 +383,30 @@ kubectl top pods -n nginx-production
 ### Rolling Updates
 
 ```bash
+
 # Update image
+
 kubectl set image deployment/nginx-app nginx-app=cleanstart/nginx:latest -n nginx-production
 
 # Check rollout status
+
 kubectl rollout status deployment/nginx-app -n nginx-production
 
 # Rollback if needed
+
 kubectl rollout undo deployment/nginx-app -n nginx-production
 ```
 
 ### Configuration Updates
 
 ```bash
+
 # Update ConfigMap
+
 kubectl apply -f complete-deployment.yaml
 
 # Restart deployment to pick up changes
+
 kubectl rollout restart deployment/nginx-app -n nginx-production
 ```
 
@@ -368,17 +415,22 @@ kubectl rollout restart deployment/nginx-app -n nginx-production
 ### Remove All Resources
 
 ```bash
+
 # Delete the entire namespace (removes all resources)
+
 kubectl delete namespace nginx-production
 
 # Or delete individual resources
+
 kubectl delete -f complete-deployment.yaml
 ```
 
 ### Partial Cleanup
 
 ```bash
+
 # Delete specific components
+
 kubectl delete deployment nginx-app -n nginx-production
 kubectl delete service nginx-service -n nginx-production
 kubectl delete configmap nginx-config -n nginx-production
@@ -459,17 +511,17 @@ This deployment is open source and available under the [MIT License](LICENSE).
 - [Prometheus Monitoring](https://prometheus.io/docs/)
 - [Kubernetes HPA Documentation](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/)
 
-**
-### 
-### Resources
+- *
 
-- Official Documentation: https://nginx.org/en/docs/
-- View Provenance, Specifications, SBOM, Signature at: https://images.cleanstart.com/images/nginx
-- Docker Hub: https://hub.docker.com/r/cleanstart/nginx
-- CleanStart All Images: https://images.cleanstart.com
-- CleanStart All Community Images: https://hub.docker.com/u/cleanstart
+###
 
----
+## Resources
+
+- **Official Documentation:** https://nginx.org/en/docs/
+- **Provenance / SBOM / Signature:** https://images.cleanstart.com/images/nginx
+- **Docker Hub:** https://hub.docker.com/r/cleanstart/nginx
+- **CleanStart All Images:** https://images.cleanstart.com
+- **CleanStart Community Images:** https://hub.docker.com/u/cleanstart
 
 ### Vulnerability Disclaimer
 

@@ -503,18 +503,6 @@ Contributions are welcome! Please feel free to:
 
 This deployment is open source and available under the [MIT License](LICENSE).
 
-## 🔗 Resources
-
-- [CleanStart Official Website](https://cleanstart.com/)
-- [Nginx Official Documentation](https://nginx.org/en/docs/)
-- [Kubernetes Official Documentation](https://kubernetes.io/docs/)
-- [Prometheus Monitoring](https://prometheus.io/docs/)
-- [Kubernetes HPA Documentation](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/)
-
-- *
-
-###
-
 ## Resources
 
 - **Official Documentation:** https://nginx.org/en/docs/

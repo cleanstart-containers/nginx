@@ -14,6 +14,21 @@ This deployment provides a complete Nginx solution on Kubernetes with:
 - **Comprehensive monitoring** with Prometheus metrics and health checks
 - **Interactive web interface** for testing and validation
 
+## Quick Start
+
+### Pull Commands
+```bash
+docker pull ghcr.io/cleanstart-containers/nginx:latest
+docker pull ghcr.io/cleanstart-containers/nginx:latest-dev
+```
+
+### Run Commands
+
+Basic test:
+```bash
+docker run -it --name openldap-test ghcr.io/cleanstart-containers/nginx:latest-dev
+```
+
 ## 📋 Prerequisites
 
 - Kubernetes cluster (v1.19+)

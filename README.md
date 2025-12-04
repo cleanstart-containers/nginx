@@ -18,7 +18,7 @@ This deployment provides a complete Nginx solution on Kubernetes with:
 
 - Kubernetes cluster (v1.19+)
 - `kubectl` configured and connected to your cluster
-- Access to CleanStart Nginx image (`cleanstart/nginx:latest`)
+- Access to CleanStart Nginx image (`ghcr.io/cleanstart-containers/nginx:latest`)
 - Sufficient cluster resources (minimum 2 nodes recommended for HPA)
 
 ## 🏗️ Architecture
@@ -386,7 +386,7 @@ kubectl top pods -n nginx-production
 
 # Update image
 
-kubectl set image deployment/nginx-app nginx-app=cleanstart/nginx:latest -n nginx-production
+kubectl set image deployment/nginx-app nginx-app=ghcr.io/cleanstart-containers//nginx:latest -n nginx-production
 
 # Check rollout status
 

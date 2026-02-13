@@ -21,8 +21,8 @@ services:
     build:
       context: ./backend1
       dockerfile: Dockerfile
-    expose:
-      - "8001"
+    ports:
+      - "8001:8001"
     networks:
       - app-network
     restart: unless-stopped
@@ -36,8 +36,8 @@ services:
     build:
       context: ./backend2
       dockerfile: Dockerfile
-    expose:
-      - "8002"
+    ports:
+      - "8002:8002"
     networks:
       - app-network
     restart: unless-stopped
@@ -51,8 +51,8 @@ services:
     build:
       context: ./backend3
       dockerfile: Dockerfile
-    expose:
-      - "8003"
+    ports:
+      - "8003:8003"
     networks:
       - app-network
     restart: unless-stopped

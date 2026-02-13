@@ -41,8 +41,10 @@
 # Using the lightweight Nginx Alpine base image
 FROM cleanstart/nginx:latest-dev
 
+USER root
+
 # Install curl for health checks
-RUN apk add --no-cache curl
+# RUN apk add --no-cache curl
 
 # Copy custom nginx configuration
 COPY nginx.conf /etc/nginx/nginx.conf
@@ -50,18 +52,15 @@ COPY nginx.conf /etc/nginx/nginx.conf
 # Copy frontend static files
 COPY frontend/index.html /usr/share/nginx/html/
 
-# The nginx:alpine image already has a non-root "nginx" user.
-# You don't need to create the user or set permissions for standard paths.
-
-# Switch to the non-root user for security
-USER nginx
+# Run as root so nginx can bind to port 80 and write to /var/lib/nginx
+# (worker processes still drop to nginx user via nginx.conf if configured)
 
 # Expose port 80
-EXPOSE 8000
+EXPOSE 80
 
-# Health check (now that curl is installed)
+# Health check (wget is in base image; curl may not be)
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
-    CMD curl -f http://localhost/health || exit 1
+    CMD wget -qO- http://localhost/health || exit 1
 
 # Start nginx
 ENTRYPOINT ["nginx", "-g", "daemon off;"]

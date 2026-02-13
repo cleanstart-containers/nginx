@@ -1,0 +1,28 @@
+services:
+  # Backend API (Flask) – hostname "backend" for nginx upstream
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    expose:
+      - "8000"
+    networks:
+      - app-network
+    restart: unless-stopped
+
+  # Nginx reverse proxy – fronts backend and serves static files
+  nginx:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - app-network
+    restart: unless-stopped
+
+networks:
+  app-network:
+    driver: bridge

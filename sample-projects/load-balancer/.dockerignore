@@ -1,0 +1,11 @@
+# Don't send backends when building the nginx image (context is .)
+backend1
+backend2
+backend3
+.git
+.gitignore
+*.md
+__pycache__
+*.pyc
+.env
+.dockerignore

@@ -37,11 +37,17 @@ FROM cleanstart/python:latest-dev
 # Set working directory
 WORKDIR /app
 
+USER root
+
+RUN python -m venv /venv
+
+ENV PATH="/venv/bin:$PATH"
+
 # Copy Python requirements first for caching
 COPY requirements.txt .
 
 # Install Python dependencies
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip3 install --no-cache-dir -r requirements.txt
 
 # Copy the rest of the app code
 COPY . .
@@ -50,5 +56,6 @@ COPY . .
 EXPOSE 8001
 
 # Correct CMD pointing to your main script
-CMD ["python3", "app.py"]
+ENTRYPOINT ["python"]
+CMD ["app.py"]
 

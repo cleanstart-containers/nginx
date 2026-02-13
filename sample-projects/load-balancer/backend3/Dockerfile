@@ -4,6 +4,12 @@ FROM cleanstart/python:latest-dev
 # Set working directory
 WORKDIR /app
 
+USER root
+
+RUN python -m venv /venv
+
+ENV PATH="/venv/bin:$PATH"
+
 # Copy requirements first for better caching
 COPY requirements.txt .
 
@@ -17,4 +23,5 @@ COPY app.py .
 EXPOSE 8003
 
 # Run the application
-CMD ["python3", "app.py"]
+ENTRYPOINT ["python"]
+CMD ["app.py"]

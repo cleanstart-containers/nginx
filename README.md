@@ -52,7 +52,7 @@ This deployment is open source and available under the [MIT License](LICENSE).
 - **Official Documentation:** https://nginx.org/en/docs/
 - **Provenance / SBOM / Signature:** https://images.cleanstart.com/images/nginx
 - **Docker Hub:** https://hub.docker.com/r/cleanstart/nginx
-- **CleanStart All Images:** https://images.cleanstart.com
+- **CleanStart All Images:** https://images.cleanstart.com/images/nginx/details
 - **CleanStart Community Images:** https://hub.docker.com/u/cleanstart
 
 ### Vulnerability Disclaimer

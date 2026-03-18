@@ -1,6 +1,6 @@
 # nginx-app — Kubernetes Image Test Project
 
-A minimal Kubernetes setup to deploy and test a custom nginx Docker image (`cleanstart/nginx:latest-dev`).
+A minimal Kubernetes setup to deploy and test a cleanstart nginx Docker image (`cleanstart/nginx:latest-dev`).
 
 ---
 
